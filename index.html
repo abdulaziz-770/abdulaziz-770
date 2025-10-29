@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JISRA — Onboarding Kit (Live Example)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+  <meta name="description" content="A ready-to-deploy live example site for the JISRA Onboarding Kit: contracts, intake forms, provisioning scripts, integrations, product configs, SRE, security, UAT, runbooks, and go-live plan." />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">JISRA</div>
+      <nav>
+        <a href="#kit">The Kit</a>
+        <a href="#demo">Demo</a>
+        <a href="#docs">Docs</a>
+        <a href="#deploy">Deploy</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Onboarding Kit — <span class="accent">Production‑ready</span></h1>
+      <p class="lead">From customer request → live operations in days. Contracts, intake, provisioning, integrations, product configs, observability, security, UAT, runbooks, and more.</p>
+      <div class="cta">
+        <a class="btn primary" href="downloads/JISRA_Onboarding_Kit_2025-10-29.zip" download>Download the Kit (ZIP)</a>
+        <a class="btn ghost" href="#demo">View Live Demo</a>
+      </div>
+      <div class="tags">
+        <span class="tag">KSA/GCC</span>
+        <span class="tag">ZATCA Phase‑2</span>
+        <span class="tag">WASL</span>
+        <span class="tag">FASAH</span>
+        <span class="tag">Last‑Mile + ePOD</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="kit" class="section">
+    <div class="container">
+      <h2>What’s inside the Kit</h2>
+      <div class="grid3">
+        <div class="card">
+          <h3>Contracts & Pricing</h3>
+          <p>SLA templates (AR/EN) and pricing buckets to kick‑off safely.</p>
+        </div>
+        <div class="card">
+          <h3>Client Intake & Imports</h3>
+          <p>CSV forms and import specs for sites, fleet, drivers, customers, and price lists.</p>
+        </div>
+        <div class="card">
+          <h3>Provisioning</h3>
+          <p>Tenant scripts, Keycloak realm, DB migrations, DNS/whitelabel guide, secrets layout.</p>
+        </div>
+        <div class="card">
+          <h3>Integrations</h3>
+          <p>Carriers mapping (Aramex/SPL…), Shopify OAuth, Odoo mapping, ZATCA/WASL/FASAH checklists.</p>
+        </div>
+        <div class="card">
+          <h3>Product Config</h3>
+          <p>Orchestrator rules, VRP constraints, ePOD failure reasons, WhatsApp/SMS/Email templates.</p>
+        </div>
+        <div class="card">
+          <h3>Observability</h3>
+          <p>Grafana JSON dashboards, Alertmanager routes, OTEL collector config.</p>
+        </div>
+        <div class="card">
+          <h3>Security & Compliance</h3>
+          <p>PDPL-by-Design inventory, DSR process, SBOM policy, container signing guide.</p>
+        </div>
+        <div class="card">
+          <h3>UAT</h3>
+          <p>E2E checklist, performance targets, and security checks.</p>
+        </div>
+        <div class="card">
+          <h3>Runbooks & Go‑Live</h3>
+          <p>Incident playbooks + Go‑Live & Hypercare daily report templates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo" class="section alt">
+    <div class="container">
+      <h2>Live Demo — 48–72h Fast Track</h2>
+      <p class="muted">A realistic scenario: Last‑mile + eInvoice (ZATCA) + WhatsApp notifications.</p>
+      <div class="timeline">
+        <div class="step">
+          <div class="step-head">T‑0: Tenant</div>
+          <div class="step-body">Create tenant & roles, set subdomain, import Keycloak realm.</div>
+        </div>
+        <div class="step">
+          <div class="step-head">T‑0: Integrations</div>
+          <div class="step-body">Enable one carrier + basic orchestrator; load ZATCA CSID; add WhatsApp templates & webhooks.</div>
+        </div>
+        <div class="step">
+          <div class="step-head">T+1: ePOD & Routing</div>
+          <div class="step-body">Driver app reasons, heat‑ban windows, depots & vehicles; run optimization.</div>
+        </div>
+        <div class="step">
+          <div class="step-head">T+2: Observability</div>
+          <div class="step-body">Grafana & alerts online; monitor OTIF, ETA‑MAE, ZATCA rejection spikes.</div>
+        </div>
+        <div class="step">
+          <div class="step-head">T+3: Go‑Live</div>
+          <div class="step-body">Limited wave, daily war‑room, rollback checkpoints.</div>
+        </div>
+      </div>
+
+      <div class="cards2">
+        <div class="card">
+          <h3>Sample Orchestrator Rule</h3>
+<pre><code>rules:
+  - name: cheapest_with_sla
+    when: "service == 'standard' and cod == false"
+    select: "min(price) where carrier.sla_on_time >= 0.95"</code></pre>
+        </div>
+        <div class="card">
+          <h3>WhatsApp OTP (AR)</h3>
+<pre><code>مرحبًا! رمز التحقق لتسليم شحنتك هو *{'}}code{{'}*، صالح لمدة 10 دقائق.</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="docs" class="section">
+    <div class="container">
+      <h2>Docs</h2>
+      <div class="accordion">
+        <details open>
+          <summary>DNS & Whitelabel</summary>
+          <p>Create CNAME <code>client.yourdomain.com → ingress.yourdomain.com</code>, attach TLS, map Keycloak theme.</p>
+        </details>
+        <details>
+          <summary>ZATCA Phase‑2</summary>
+          <p>Upload CSID, B2C/B2B XML + QR, enable Clearance/Reporting, archive legally; alert if rejection &gt; 0.5%.</p>
+        </details>
+        <details>
+          <summary>WASL & FASAH</summary>
+          <p>Register entity, vehicles, drivers; send compliance events; customs broker delegation and DLQ for retries.</p>
+        </details>
+        <details>
+          <summary>PDPL</summary>
+          <p>Data inventory & retention, DSR portal, KSA residency, audit log for every request.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="deploy" class="section alt">
+    <div class="container">
+      <h2>How to deploy this site (free)</h2>
+      <ol class="deploy-steps">
+        <li>Unzip the file below and push to a new GitHub repository.</li>
+        <li>Enable GitHub Pages (Settings → Pages → Source: main → /root).</li>
+        <li>Or drag & drop the folder into Netlify/Vercel for an instant URL.</li>
+        <li>Update DNS CNAME from your subdomain to the hosting URL.</li>
+      </ol>
+      <a class="btn primary" href="downloads/site.zip" download>Download this Website (ZIP)</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div>© 2025 JISRA. All rights reserved.</div>
+      <div class="small muted">This is a static demo. Replace placeholders with production credentials and secrets via your Vault/KMS.</div>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>
